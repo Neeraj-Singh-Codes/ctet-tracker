@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTET Prep Tracker ✨</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Sticky Header with Global Progress -->
+    <header>
+        <h1>CTET <span>Goals</span></h1>
+        <div class="global-progress-container">
+            <div class="progress-labels">
+                <span>Overall Progress</span>
+                <span id="global-percent">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div id="global-bar" class="progress-bar-fill" style="width: 0%"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="carousel-container">
+        <!-- Swipe Hint for Mobile -->
+        <div class="swipe-hint" id="swipe-hint">
+            <div class="hand-icon">👆</div>
+            <span>Swipe to explore</span>
+        </div>
+
+        <button class="nav-arrow left-arrow" id="prev-btn" aria-label="Previous Topic">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        
+        <div class="card-scroller" id="scroller">
+            <!-- Card 1: Child Development (Inferred) -->
+        <div class="card subject-card" data-subject="cdp">
+            <div class="card-header">
+                <h2>Child Development</h2>
+                <div class="mini-progress">
+                    <span class="card-percent">0%</span>
+                    <div class="mini-bar-bg"><div class="mini-bar-fill" style="width: 0%"></div></div>
+                </div>
+            </div>
+            <ul class="topic-list">
+                <li><label><input type="checkbox"> <span>Learning Theories(Piaget, Kohlberg, Vygotsky)</span></label></li>
+                <li><label><input type="checkbox"> <span>Inclusive Education</span></label></li>
+                <li><label><input type="checkbox"> <span>Teaching Learning Process</span></label></li>
+                <li><label><input type="checkbox"> <span>Classroom Management</span></label></li>
+                <li><label><input type="checkbox"> <span>Individual Differences</span></label></li>
+                <li><label><input type="checkbox"> <span>Concept of Development</span></label></li>
+            </ul>
+        </div>
+
+        <!-- Card 2: Maths -->
+        <div class="card subject-card" data-subject="maths">
+            <div class="card-header">
+                <h2>Maths</h2>
+                <div class="mini-progress">
+                    <span class="card-percent">0%</span>
+                    <div class="mini-bar-bg"><div class="mini-bar-fill" style="width: 0%"></div></div>
+                </div>
+            </div>
+            <ul class="topic-list">
+                <li><label><input type="checkbox"> <span>Number System</span></label></li>
+                <li><label><input type="checkbox"> <span>Shapes & Geometry</span></label></li>
+                <li><label><input type="checkbox"> <span>Measurement</span></label></li>
+                <li><label><input type="checkbox"> <span>Data Handling</span></label></li>
+                <li><label><input type="checkbox"> <span>Patterns</span></label></li>
+                <li><label><input type="checkbox"> <span>Pedagogical Issues in teaching Maths</span></label></li>
+            </ul>
+        </div>
+
+        <!-- Card 3: Environmental Studies -->
+        <div class="card subject-card" data-subject="evs">
+            <div class="card-header">
+                <h2>Environmental Studies</h2>
+                <div class="mini-progress">
+                    <span class="card-percent">0%</span>
+                    <div class="mini-bar-bg"><div class="mini-bar-fill" style="width: 0%"></div></div>
+                </div>
+            </div>
+            <ul class="topic-list">
+                <li><label><input type="checkbox"> <span>Family & Friends</span></label></li>
+                <li><label><input type="checkbox"> <span>Food & Water</span></label></li>
+                <li><label><input type="checkbox"> <span>Travel Shelter</span></label></li>
+                <li><label><input type="checkbox"> <span>Plants and Animals</span></label></li>
+                <li><label><input type="checkbox"> <span>Concept of EVS</span></label></li>
+                <li><label><input type="checkbox"> <span>Teaching Material & Methods</span></label></li>
+            </ul>
+        </div>
+
+        <!-- Card 4: English Language -->
+        <div class="card subject-card" data-subject="english">
+            <div class="card-header">
+                <h2>English Language</h2>
+                <div class="mini-progress">
+                    <span class="card-percent">0%</span>
+                    <div class="mini-bar-bg"><div class="mini-bar-fill" style="width: 0%"></div></div>
+                </div>
+            </div>
+            <ul class="topic-list">
+                <li><label><input type="checkbox"> <span>Reading Comprehension</span></label></li>
+                <li><label><input type="checkbox"> <span>Grammar( Articles, Prepositions)</span></label></li>
+                <li><label><input type="checkbox"> <span>Grammar (Tenses, Verbs)</span></label></li>
+                <li><label><input type="checkbox"> <span>Vocabulary</span></label></li>
+                <li><label><input type="checkbox"> <span>Teaching of English as second language</span></label></li>
+                
+            </ul>
+        </div>
+
+        <!-- Card 5: Hindi Language -->
+        <div class="card subject-card" data-subject="hindi">
+            <div class="card-header">
+                <h2>Hindi Language</h2>
+                <div class="mini-progress">
+                    <span class="card-percent">0%</span>
+                    <div class="mini-bar-bg"><div class="mini-bar-fill" style="width: 0%"></div></div>
+                </div>
+            </div>
+            <ul class="topic-list">
+                <li><label><input type="checkbox"> <span>अपठित गद्यांश</span></label></li>
+                <li><label><input type="checkbox"> <span>व्याकरण (संधि, समास, उपसर्ग, प्रत्यय)</span></label></li>
+                <li><label><input type="checkbox"> <span>भाषा शिक्षण के तरीके</span></label></li>
+                <li><label><input type="checkbox"> <span>शब्द ज्ञान</span></label></li>
+            </ul>
+        </div>
+
+        <!-- Card 6: Science (Paper 2) -->
+        <div class="card subject-card" data-subject="science">
+            <div class="card-header">
+                <h2>Science (Paper 2)</h2>
+                <div class="mini-progress">
+                    <span class="card-percent">0%</span>
+                    <div class="mini-bar-bg"><div class="mini-bar-fill" style="width: 0%"></div></div>
+                </div>
+            </div>
+            <ul class="topic-list">
+                <li><label><input type="checkbox"> <span>Food and nutrition</span></label></li>
+                <li><label><input type="checkbox"> <span>Materials of daily use</span></label></li>
+                <li><label><input type="checkbox"> <span>Natural resources</span></label></li>
+                <li><label><input type="checkbox"> <span>Experiments and observation</span></label></li>
+                <li><label><input type="checkbox"> <span>Scientific approach in teaching</span></label></li>
+            </ul>
+        </div>
+
+        <!-- Card 7: Social Studies (Paper 2) -->
+        <div class="card subject-card" data-subject="social">
+            <div class="card-header">
+                <h2>Social Studies (Paper 2)</h2>
+                <div class="mini-progress">
+                    <span class="card-percent">0%</span>
+                    <div class="mini-bar-bg"><div class="mini-bar-fill" style="width: 0%"></div></div>
+                </div>
+            </div>
+            <ul class="topic-list">
+                <li><label><input type="checkbox"> <span>History (Freedom movement, Ancient-Modern India)</span></label></li>
+                <li><label><input type="checkbox"> <span>Geography (Earth, Environment, Resources)</span></label></li>
+                <li><label><input type="checkbox"> <span>Political Science (Democracy, Government)</span></label></li>
+                <li><label><input type="checkbox"> <span>Pedagogical issues</span></label></li>
+            </ul>
+        </div>
+
+            </ul>
+        </div>
+        
+        </div> <!-- End card-scroller -->
+        
+        <button class="nav-arrow right-arrow" id="next-btn" aria-label="Next Topic">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+    </main>
+
+    <script src="confetti.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
