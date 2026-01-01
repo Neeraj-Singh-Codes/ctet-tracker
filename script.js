@@ -42,6 +42,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 4000);
     }
 
+    // LocalStorage Key
+    const STORAGE_KEY = 'ctet_tracker_progress';
+
+    function saveProgress() {
+        const progressData = {};
+        cards.forEach(card => {
+            const subject = card.dataset.subject;
+            const checkboxes = card.querySelectorAll('input[type="checkbox"]');
+            progressData[subject] = Array.from(checkboxes).map(cb => cb.checked);
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(progressData));
+    }
+
+    function loadProgress() {
+        const savedData = localStorage.getItem(STORAGE_KEY);
+        if (!savedData) return;
+
+        try {
+            const progressData = JSON.parse(savedData);
+            cards.forEach(card => {
+                const subject = card.dataset.subject;
+                if (progressData[subject]) {
+                    const checkboxes = card.querySelectorAll('input[type="checkbox"]');
+                    progressData[subject].forEach((isChecked, index) => {
+                        if (checkboxes[index]) {
+                            checkboxes[index].checked = isChecked;
+                        }
+                    });
+                }
+            });
+        } catch (e) {
+            console.error("Error loading progress:", e);
+        }
+    }
+
     function updateProgress() {
         let totalGlobalCheckboxes = 0;
         let totalGlobalChecked = 0;
@@ -76,6 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const globalPercentage = totalGlobalCheckboxes === 0 ? 0 : Math.round((totalGlobalChecked / totalGlobalCheckboxes) * 100);
         globalBar.style.width = `${globalPercentage}%`;
         globalPercentText.textContent = `${globalPercentage}%`;
+        
+        // Save state after update
+        saveProgress();
     }
 
     // Attach Event Listeners
@@ -111,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initial calculation
+    // Initial load and calculation
+    loadProgress();
     updateProgress();
 });
